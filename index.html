@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<!-- Prevent the site form being indexed by search engines -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>Understanding Visual Concepts Across Models</title>
+
+<meta name="description" content="Large multimodal models such as Stable Diffusion can generate, detect, and classify new visual concepts after fine-tuning just a single word embedding. Do models learn similar words for the same concepts (i.e. <orange-cat> = orange + cat)?">
+<meta property="og:title" content="Understanding Visual Concepts Across Models"/>
+<meta property="og:description" content="Large multimodal models such as Stable Diffusion can generate, detect, and classify new visual concepts after fine-tuning just a single word embedding. Do models learn similar words for the same concepts (i.e. <orange-cat> = orange + cat)?"/>
+<meta property="og:url" content="anonymous-visual-words.github.io"/>
+
+<meta property="og:image" content="static/image/visual-words-gif-medium.gif" />
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+<meta name="twitter:title" content="Understanding Visual Concepts Across Models">
+<meta name="twitter:description" content="Large multimodal models such as Stable Diffusion can generate, detect, and classify new visual concepts after fine-tuning just a single word embedding. Do models learn similar words for the same concepts (i.e. <orange-cat> = orange + cat)?">
+
+<meta name="twitter:image" content="static/image/visual-words-gif-medium.gif">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="keywords" content="Deep Learning, Generative AI, Diffusion Models">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+<link rel="stylesheet" href="static/css/bulma.min.css">
+<link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+<link rel="stylesheet" href="static/css/bulma-slider.min.css">
+<link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="static/css/index.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+<script defer src="static/js/fontawesome.all.min.js"></script>
+<script src="static/js/bulma-carousel.min.js"></script>
+<script src="static/js/bulma-slider.min.js"></script>
+<script src="static/js/index.js"></script>
+
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-body">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column has-text-centered">
+
+<h1 class="title is-1 publication-title">Understanding Visual Concepts Across Models</h1>
+
+<div class="is-size-5 publication-authors">
+  <span class="author-block">Anonymous Authors</span>
+</div>
+
+<div class="column has-text-centered">
+<div class="publication-links">
+
+<span class="link-block">
+  <a href="static/15110_understanding_visual_concepts_small.pdf" target="_blank"
+    class="external-link button is-normal is-rounded">
+    <span class="icon">
+      <i class="fas fa-file-pdf"></i>
+    </span>
+    <span>PDF</span>
+  </a>
+</span>
+
+<span class="link-block">
+  <a href="https://openreview.net/forum?id=1WVqz2LoOI" target="_blank"
+    class="external-link button is-normal is-rounded">
+    <span class="icon">
+      <i class="fas fa-file-pdf"></i>
+    </span>
+    <span>OpenReview</span>
+  </a>
+</span>
+
+<span class="link-block">
+  <a href="https://github.com/anonymous-visual-words/visual-words" target="_blank"
+    class="external-link button is-normal is-rounded">
+    <span class="icon">
+      <i class="fab fa-github"></i>
+    </span>
+    <span>Anonymized Code</span>
+  </a>
+</span>
+
+</div>
+</div>
+
+<img src="static/images/visual-words-gif-medium.gif" alt="Do Models Learn Similar Words For Different Tasks" class="teaser-gif image">
+
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Large multimodal models such as Stable Diffusion can generate, detect, and classify new visual concepts after fine-tuning just a single word embedding. Do models learn similar words for the same concepts (i.e. &lt;orange-cat&gt; = orange + cat)? We conduct a large-scale analysis on three state-of-the-art models in text-to-image generation, open-set object detection, and zero-shot classification, and find that new word embeddings are model-specific and non-transferable. Across 4,800 new embeddings trained for 40 diverse visual concepts on four standard datasets, we find perturbations within an $\epsilon$-ball to any prior embedding that generate, detect, and classify an arbitrary concept. When these new embeddings are spliced into new models, fine-tuning that targets the original model is lost. We show popular soft prompt-tuning approaches find these perturbative solutions when applied to visual concept learning tasks, and  embeddings for visual concepts are not transferable. Code for reproducing our work is available at: <a href="https://anonymous-visual-words.github.io">anonymous-visual-words.github.io</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop content">
+      <img src="static/images/figure_one.png" alt="Transferring Word Embeddings" class="image">
+      <br>
+      <p><strong>Figure 1</strong> &nbsp;&nbsp; Large Multimodal Models, including Stable Diffusion, OWL-v2, and CLIP, can learn new words that represent specific concepts, such as &lt;black-dog&gt; for the black Labrador retriever on the left in the figure. Do models learn similar words for the same concept? We study the <strong>interoperability</strong> of new word embeddings that encode visual concepts across three models and tasks, and show that popular soft prompt-tuning approaches find model-specific and non-transferable solutions.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop content">
+      <img src="static/images/figure_two.png" alt="Transferring From Generation To Detection" class="image">
+      <br>
+      <p><strong>Figure 2</strong> &nbsp;&nbsp; Transferring words optimized for generation to detection tasks. We fine-tune the vector embeddings for new words (such as &lt;orange-cat&gt; for the orange cat in the figure) in the Text Encoder of Stable Diffusion 2.1 to minimize a noise prediction loss for generation. Vector embeddings are transferred from generation to detection using the Transfer Function T(<var class="vector">v<span>&#8407;</span></var>), and used to produce zero-shot instance detections for the target visual concept (in this case, orange cats).</p>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop content">
+      <img src="static/images/transfer_results.png" alt="Transfer Evaluation Results" class="image">
+      <br>
+      <p><strong>Figure 3</strong> &nbsp;&nbsp; Performance (y-axis) of word vectors optimized for generation, detection, and classification of new visual concepts, constrained to the neighborhood of anchor words. In-domain performance saturates at a constraint level (x-axis) of &delta; = 0.5, where the closest word embedding is the anchor word. This type of solution performs well in-domain, but does not perform well after transfer. Each line in the figure corresponds to the 95% confidence interval of 100 randomized trials for 10 concepts, and 10 anchor words per dataset. Refer to Appendix D for the concepts and anchor words used for each dataset.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop content">
+      <img src="static/images/fracture.png" alt="Performant Solutions Are Everywhere" class="image">
+      <br>
+      <p><strong>Figure 4</strong> &nbsp;&nbsp; Performant embeddings for generation, detection, and classification are everywhere. Example generations and detections for various concepts (row labels) using solutions found in the immediate neighborhood of unrelated words (column labels). We consistently find new words for generating and detecting arbitrary concepts near unrelated anchor words across ImageNet (examples in Appendix F of the manuscript), DreamBooth (first three rows), COCO (last three rows), and PASCAL VOC (see Appendix F) datasets. The same objects are detected, and in several cases, near-identical images are generated.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop content">
+      <img src="static/images/mismatch.png" alt="New Words Target Final Layers" class="image">
+      <br>
+      <p><strong>Figure 5</strong> &nbsp;&nbsp; Prompts optimized for visual concepts target the final layers in Text Encoders. We show images generated by Stable Diffusion 2.1 when truncating the Text Encoder to the first N layers, and create TSNE visualizations of the Text Encoder activations for the pooling token at four evenly spaced layers. Each color represents a different visual concept. Activations cluster around the anchor word instead of the target concept. When truncating the text encoder to just these layers, the anchor word (i.e. strawberry) is generated instead of the target concept (sombrero). Only by the final layers are clusters and generations correct. When transferred (visualizations in Appendix G of the manuscript) no evolution happens.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container is-max-desktop content">
+    <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
